@@ -39,7 +39,7 @@ const loadPhoneDetail = phoneId => {
 }
 
 const displayPhoneDetails = phone => {
-    console.log(phone);
+    console.log(phone.data);
     const phoneSpecification = document.getElementById('specification');
     const div = document.createElement('div');
     div.classList.add('card');
