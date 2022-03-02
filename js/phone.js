@@ -55,7 +55,7 @@ const loadPhoneDetail = phoneId => {
     console.log(url);
     fetch(url)
         .then(res => res.json())
-        .then(data => displayPhoneDetails(data.data.mainFeatures))
+        .then(data => displayPhoneDetails(data.data))
 }
 
 
@@ -68,17 +68,18 @@ const displayPhoneDetails = phone => {
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
+    <img src="${phone.image}" class="card-img-top" alt="...">
     <div class="card-body">
-        <h4 class="card-title">${phone.chipSet}</h4>
-        <h5 class="card-title">${phone.displaySize}</h5>
-        <p class="card-text">${phone.memory}</p>
-        <p class="card-text"> 1.${phone.sensors[0]}</p>
-        <p class="card-text"> 2.${phone.sensors[1]}</p>
-        <p class="card-text"> 3.${phone.sensors[2]}</p>
-        <p class="card-text"> 4.${phone.sensors[3]}</p>
-        <p class="card-text"> 5.${phone.sensors[4]}</p>
-        <p class="card-text"> 6.${phone.sensors[5]}</p>
-        <p class="card-text"> 7.${phone.sensors[6]}</p>
+        <h4 class="card-title">${phone.mainFeatures.chipSet}</h4>
+        <h5 class="card-title">${phone.mainFeatures.displaySize}</h5>
+        <p class="card-text">${phone.mainFeatures.memory}</p>
+        <p class="card-text"> 1.${phone.mainFeatures.sensors[0]}</p>
+        <p class="card-text"> 2.${phone.mainFeatures.sensors[1]}</p>
+        <p class="card-text"> 3.${phone.mainFeatures.sensors[2]}</p>
+        <p class="card-text"> 4.${phone.mainFeatures.sensors[3]}</p>
+        <p class="card-text"> 5.${phone.mainFeatures.sensors[4]}</p>
+        <p class="card-text"> 6.${phone.mainFeatures.sensors[5]}</p>
+        <p class="card-text"> 7.${phone.mainFeatures.sensors[6]}</p>
     `;
     phoneSpecification.appendChild(div);
 }
